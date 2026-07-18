@@ -44,7 +44,7 @@ public class SearchRoom extends JFrame implements ActionListener {
         content = new JPanel();
         content.setLayout(null);
         content.setBackground(cream);
-        content.setPreferredSize(new Dimension(1400, 1500)); // Height badha dena agar aur content ho
+        content.setPreferredSize(new Dimension(1400, 1300));
 
         //---------------- HEADER ----------------//
 
@@ -192,7 +192,6 @@ public class SearchRoom extends JFrame implements ActionListener {
                 BorderFactory.createEmptyBorder(5,10,5,10)
         ));
 
-        //// ----------------  search button
 
         searchBtn = new JButton("Search Rooms");
         searchBtn.setBounds(500,155,320,50);
@@ -446,7 +445,7 @@ public class SearchRoom extends JFrame implements ActionListener {
                         String query = "SELECT room_type, room_no, bed_type, price, person, aval "
                                 + "FROM roomInfo "
                                 + "WHERE room_type='" + Category + "' "
-                                + "AND person='" + Guest + "' "
+                                + "AND person<='" + Guest + "' "
                                 + "AND price<='" + Price + "'"
                                 + "AND aval = 'Available' ";
 

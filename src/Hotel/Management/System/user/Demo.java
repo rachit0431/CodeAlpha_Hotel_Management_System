@@ -1,57 +1,37 @@
 package Hotel.Management.System.user;
 
 import javax.swing.*;
-import javax.swing.border.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.File;
 
-public class Demo extends JFrame implements ActionListener {
+public class Demo extends JFrame{
 
-    Color navy = new Color(17, 44, 87);
-    Color bg = new Color(245,247,252);
-    Color green = new Color(34,197,94);
+    Demo() {
+        JPanel panel = new JPanel();
+        panel.setBounds(0,0,1000,1000);
+        panel.setBackground(Color.GRAY);
+        panel.setLayout(null);
+        add(panel);
 
-    JTextField bookingID;
-    JButton done;
+        java.net.URL url = getClass().getResource("/icons/booking.png");
+        System.out.println(url);
 
-    public Demo() {
+        ImageIcon imageIcon = new ImageIcon(url);
+        Image img = imageIcon.getImage().getScaledInstance(320,200,Image.SCALE_SMOOTH);
 
-        setTitle("Search Booking-ID");
-        setSize(380,250);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JLabel imgg = new JLabel(new ImageIcon(img));
+        imgg.setBounds(0,0,320,200);
+
+        panel.add(imgg);
+
         setLayout(null);
-
-        JLabel label = new JLabel("Enter booking-ID here: ");
-        label.setBounds(30,40,300,35);
-        label.setFont(new Font("Sogue UI" , Font.PLAIN , 28 ));
-        add(label);
-
-        bookingID = new JTextField();
-        bookingID.setBounds(30,90,300,30);
-        add(bookingID);
-
-        done = new JButton("Done");
-        done.setBounds(30,150,300,30);
-        done.addActionListener(this);
-        done.setFocusable(false);
-        add(done);
-
-        setUndecorated(true);
+        setSize(1000,700);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
-
-    public void actionPerformed(ActionEvent ae){
-        if(ae.getSource().equals(done)){
-            String BookingID = bookingID.getText();
-
-            new GuestRoomDetails(BookingID).setVisible(true);
-            setVisible(false);
-        }
-    }
-    public static void main(String[] args) {
+    static void main(String[] args) {
         new Demo();
     }
 }

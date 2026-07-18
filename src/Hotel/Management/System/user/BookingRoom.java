@@ -99,7 +99,7 @@ public class BookingRoom extends JFrame implements ActionListener {
     private void createSidebar() {
 
         leftPanel = new JPanel(null);
-        leftPanel.setBounds(15, 15, 320, 960);
+        leftPanel.setBounds(15, 38, 320, 960);
         leftPanel.setBackground(NAVY);
         leftPanel.setBorder(new LineBorder(GOLD,2,true));
 
@@ -144,23 +144,22 @@ public class BookingRoom extends JFrame implements ActionListener {
 
         //---------------- IMAGE ----------------
 
-        JLabel image = new JLabel("Hotel Image Here");
-        image.setBounds(0,360,320,600);
-        image.setHorizontalAlignment(SwingConstants.CENTER);
-        image.setForeground(Color.WHITE);
-        image.setOpaque(true);
-        image.setBackground(new Color(25,45,90));
+//        JLabel image = new JLabel("Hotel Image Here");
+//        image.setBounds(0,360,320,600);
+//        image.setHorizontalAlignment(SwingConstants.CENTER);
+//        image.setForeground(Color.WHITE);
+//        image.setOpaque(true);
+//        image.setBackground(new Color(25,45,90));
 
-        /*
-            IMAGE LAGANE KE LIYE
 
-            ImageIcon img = new ImageIcon("hotel.jpg");
-            image.setIcon(img);
-            image.setText("");
+        ImageIcon imageIcon = new ImageIcon("icons/booking.png");
+        Image img = imageIcon.getImage().getScaledInstance(320,200,Image.SCALE_SMOOTH);
+        JLabel imgg = new JLabel(new ImageIcon(img));
+        imgg.setBounds(0,970,320,200);
+        leftPanel.add(imgg);
 
-        */
 
-        leftPanel.add(image);
+//        leftPanel.add(image);
 
         mainPanel.add(leftPanel);
     }
@@ -570,6 +569,8 @@ public class BookingRoom extends JFrame implements ActionListener {
 
                 c.statement.executeUpdate(query);
                 c.statement.executeUpdate(query2);
+
+                JOptionPane.showMessageDialog(null,"your Booking ID is: "+ BookingID);
 
             }catch (Exception E){
                 E.printStackTrace();

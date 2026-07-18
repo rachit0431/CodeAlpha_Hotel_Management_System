@@ -148,7 +148,7 @@ class HomePage extends JFrame implements ActionListener {
         String name = btn.getText();
         if(name.equals("Rooms")){
             setVisible(false);
-            new Demo();
+            new SearchBookingID();
         }
     }
 
